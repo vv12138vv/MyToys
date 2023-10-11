@@ -30,7 +30,7 @@ private:
 public:
     explicit UniquePtr();   // explicit表示禁止隐式类型转换，尤其是单参数构造函数
     explicit UniquePtr(T* p);
-    explicit UniquePtr(const UniquePtr& that) = delete;   // 拷贝构造函数,delete表示不支持
+    explicit UniquePtr(const UniquePtr& that) = delete;   // 拷贝构造函数,delete表示不支持,此处的const有妙用：1.为了强调不会对变量产生变化。2.const &使得可以引用左值和右值
     UniquePtr& operator=(const UniquePtr& that) = delete;   // 赋值构造函数
     explicit UniquePtr(UniquePtr&& that);                   // 移动构造函数
     UniquePtr& operator=(UniquePtr&& that);                       // 移动赋值构造函数
