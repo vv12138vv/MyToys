@@ -1,7 +1,5 @@
 #include "unique_ptr.hpp"
 #include<iostream>
-#include <memory>
-#include <utility>
 class Base {
 private:
 
