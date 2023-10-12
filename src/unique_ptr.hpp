@@ -56,15 +56,15 @@ UniquePtr<T, D>::UniquePtr(T* p)
 template<typename T, typename D>
 UniquePtr<T, D>::UniquePtr(
     UniquePtr&& that) {   // 被移动的对象已经失去了所有权，一定要将内部指针设置为nullptr
-    raw_ = std::forward<T*>(that.raw_);
-    deleter_ = std::forward<D>(that.deleter_);
+    raw_ = std::move(that.raw_);
+    deleter_ = std::move(that.deleter_);
     that.raw_ = nullptr;
 }
 
 template<typename T, typename D>
 UniquePtr<T,D>& UniquePtr<T, D>::operator=(UniquePtr&& that) {
-    raw_ = std::forward<T*>(that.raw_);
-    deleter_ = std::forward<D>(that.deleter_);
+    raw_ = std::move(that.raw_);
+    deleter_ = std::move(that.deleter_);
     that.raw_ = nullptr;
     return *this;
 }
