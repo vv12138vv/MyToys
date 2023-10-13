@@ -3,7 +3,7 @@
 
 /*
 Author:vv12138vv
-mytoy:implement a SharedPtr to better understand shared_ptr;
+comment:implement a SharedPtr to better understand shared_ptr;
 As a SharedPtr,it needs the following aspects:
 tips:
 1. T* ptr point the object

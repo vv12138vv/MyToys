@@ -120,45 +120,45 @@ public:
         }
         size_ = 0;
     }
-    bool empty(){
-        if(size_){
+    bool empty() {
+        if (size_) {
             return false;
         }
         return false;
     }
-    void insert(size_t index,const T& data){
-        if(index>=size()||index<0){
+    void insert(size_t index, const T& data) {
+        if (index >= size() || index < 0) {
             return;
         }
-        if(size_>=capacity_){
-            re_allocate(capacity_+capacity_);
+        if (size_ >= capacity_) {
+            re_allocate(capacity_ + capacity_);
         }
-        size_t it=size_;
-        while(it>=index+1){
-            memory_[it]=memory_[it-1];
-            it-=1;
+        size_t it = size_;
+        while (it >= index + 1) {
+            memory_[it] = memory_[it - 1];
+            it -= 1;
         }
-        memory_[index]=data;
-        size_+=1;
+        memory_[index] = data;
+        size_ += 1;
     }
-    void insert(size_t index,T&& data){
-        if(index>=size()||index<0){
+    void insert(size_t index, T&& data) {
+        if (index >= size() || index < 0) {
             return;
         }
-        if(size_>=capacity_){
-            re_allocate(capacity_+capacity_);
+        if (size_ >= capacity_) {
+            re_allocate(capacity_ + capacity_);
         }
-        size_t it=size_;
-        while(it>=index+1){
-            memory_[it]=std::move(memory_[it-1]);
-            it-=1;
+        size_t it = size_;
+        while (it >= index + 1) {
+            memory_[it] = std::move(memory_[it - 1]);
+            it -= 1;
         }
-        memory_[index]=std::move(data);
-        size_+=1;
+        memory_[index] = std::move(data);
+        size_ += 1;
     }
     const T& operator[](size_t index) const { return memory_[index]; }
     T& operator[](size_t index) { return memory_[index]; }
     size_t size() const { return size_; }
-    size_t capacity() const{return capacity_;}
+    size_t capacity() const { return capacity_; }
 };
 }   // namespace vvstl
