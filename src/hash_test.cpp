@@ -1,8 +1,10 @@
 #include "hash.hpp"
+#include"timer.h"
 #include <iostream>
 using namespace vvstl;
 
 int main() {
+    Timer time;
     Hash hash;
     hash.insert("wj1", 1);
     hash.insert("wj2", 2);
